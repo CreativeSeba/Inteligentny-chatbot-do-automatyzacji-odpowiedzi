@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="chatbox">
+        <div id="chat" class="chat">
+            <div class="bot-message">Cześć! Jak mogę Ci pomóc?</div>
+        </div>
+        <form id="chat-form">
+            <input type="text" id="user-message" placeholder="Wpisz wiadomość..." required />
+            <button type="submit">Wyślij</button>
+        </form>
+    </div>
+
+    <script>
+        const chatForm = document.getElementById('chat-form');
+        const userMessageInput = document.getElementById('user-message');
+        const chatBox = document.getElementById('chat');
+
+        chatForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const userMessage = userMessageInput.value;
+            chatBox.innerHTML += `<div class="user-message">${userMessage}</div>`;
+            userMessageInput.value = '';
+
+            fetch('/chat', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                body: `message=${userMessage}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                chatBox.innerHTML += `<div class="bot-message">${data.response}</div>`;
+                chatBox.scrollTop = chatBox.scrollHeight;
+            });
+        });
+    </script>
+</body>
+</html>

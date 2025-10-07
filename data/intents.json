@@ -1,0 +1,37 @@
+{
+  "intents": [
+    {
+      "intent": "plan_zajecia",
+      "patterns": [
+        "Jaki jest plan zajęć?",
+        "Gdzie mogę znaleźć plan zajęć?",
+        "Kiedy są moje zajęcia?"
+      ],
+      "responses": [
+        "Plan zajęć możesz znaleźć na stronie: www.szkola.pl/plan-zajec"
+      ]
+    },
+    {
+      "intent": "rekrutacja",
+      "patterns": [
+        "Jak mogę się zapisać?",
+        "Gdzie mogę znaleźć informacje o rekrutacji?",
+        "Jakie są wymagania rekrutacyjne?"
+      ],
+      "responses": [
+        "Informacje o rekrutacji dostępne są na stronie: www.szkola.pl/rekrutacja"
+      ]
+    },
+    {
+      "intent": "kontakt",
+      "patterns": [
+        "Jak mogę się skontaktować?",
+        "Gdzie jest sekretariat?",
+        "Chcę skontaktować się z administracją"
+      ],
+      "responses": [
+        "Dane kontaktowe znajdziesz na stronie: www.szkola.pl/kontakt"
+      ]
+    }
+  ]
+}
