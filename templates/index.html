@@ -31,12 +31,18 @@
             fetch('/chat', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                body: `message=${userMessage}`
+                body: new URLSearchParams({
+                    message: userMessage
+                }).toString()
             })
             .then(response => response.json())
             .then(data => {
                 chatBox.innerHTML += `<div class="bot-message">${data.response}</div>`;
                 chatBox.scrollTop = chatBox.scrollHeight;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                chatBox.innerHTML += `<div class="bot-message">Przepraszam, wystąpił błąd.</div>`;
             });
         });
     </script>
