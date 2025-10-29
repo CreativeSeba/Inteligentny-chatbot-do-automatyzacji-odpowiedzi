@@ -9,7 +9,8 @@ from sklearn.svm import SVC
 # Załaduj dane
 nltk.download('punkt')
 
-with open('data/intents.json') as file:
+# Otwórz plik JSON z kodowaniem UTF-8
+with open('data/intents.json', encoding='utf-8') as file:
     intents = json.load(file)
 
 # Przygotuj dane

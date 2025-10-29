@@ -16,7 +16,10 @@ def chat():
     user_input = request.form['message']
     intent = predict_intent(user_input)
     response_text = get_response(intent)
-    return jsonify({'response': response_text})
+    response = jsonify({'response': response_text})
+    response.headers['Content-Type'] = 'application/json; charset=utf-8'
+    return response
+
 
 
 if __name__ == '__main__':
