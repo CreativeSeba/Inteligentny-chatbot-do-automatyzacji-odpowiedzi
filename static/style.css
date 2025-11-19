@@ -14,40 +14,57 @@ body {
     border-radius: 8px;
     padding: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
 }
 
 #chat {
     max-height: 400px;
     overflow-y: auto;
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.user-message, .bot-message {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 15px;
+    max-width: 80%;
+    word-wrap: break-word;
+    margin-bottom: 5px;
 }
 
 .user-message {
-    text-align: right;
+    align-self: flex-end;
     background-color: #d1e7fd;
-    border-radius: 10px;
-    padding: 5px;
-    margin-bottom: 5px;
+    text-align: right;
 }
 
 .bot-message {
-    text-align: left;
+    align-self: flex-start;
     background-color: #e2e3e5;
-    border-radius: 10px;
-    padding: 5px;
-    margin-bottom: 5px;
+    text-align: left;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
 }
 
 form input {
-    width: 80%;
+    width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
 
 form button {
-    width: 18%;
-    padding: 10px;
+    width: auto;
+    padding: 10px 16px;
     background-color: #007bff;
     color: white;
     border: none;
